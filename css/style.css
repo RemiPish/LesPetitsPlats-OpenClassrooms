@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap');
+
+.content-container {
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.logo {
+    width: 250px;
+}
+
+.search-input {
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: #e7e7e7 !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.search-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.search-input-icon {
+    font-size: 35px;
+    padding: 5px;
+}
+
+.btn{
+    padding: 15px 23px !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.btn-green{
+    background-color: #68D9A4 !important;
+    color: white !important;
+}
+
+.btn-orange{
+    background-color: #ED6454 !important;
+    color: white !important;
+}
