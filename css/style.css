@@ -1,42 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto&display=swap");
+body {
+  font-family: "Lato", sans-serif !important;
+}
 
 .content-container {
-    margin: 0 auto;
-    max-width: 1440px;
+  margin: 0 auto;
+  max-width: 1440px;
 }
 
 .logo {
-    width: 250px;
+  width: 250px;
 }
 
 .search-input {
-    border: none !important;
-    border-radius: 0 !important;
-    background-color: #e7e7e7 !important;
-    font-family: 'Lato', sans-serif !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background-color: #e7e7e7 !important;
 }
 
 .search-input:focus {
-    outline: none !important;
-    box-shadow: none !important;
+  outline: none !important;
+  box-shadow: none !important;
 }
 
 .search-input-icon {
-    font-size: 35px;
-    padding: 5px;
+  font-size: 35px;
+  padding: 5px;
 }
 
-.btn{
-    padding: 15px 23px !important;
-    font-family: 'Lato', sans-serif !important;
+.btn {
+  padding: 15px 23px !important;
 }
 
-.btn-green{
-    background-color: #68D9A4 !important;
-    color: white !important;
+.btn-green {
+  background-color: #68D9A4 !important;
+  color: white !important;
 }
 
-.btn-orange{
-    background-color: #ED6454 !important;
-    color: white !important;
+.btn-orange {
+  background-color: #ED6454 !important;
+  color: white !important;
 }
+
+.item-anchor {
+  text-decoration: none !important;
+  color: #000000 !important;
+}
+
+.card-img {
+  background: #C7BEBE;
+  height: 178px;
+  z-index: 3;
+}
+
+article {
+  width: 30%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.recipe-container {
+  margin: 25px;
+  justify-content: space-between;
+  gap: 25px;
+}
+.recipe-container article {
+  background: #E7E7E7;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.card-infoContent {
+  display: flex;
+  margin: 20px;
+  justify-content: space-between;
+}
+.card-infoContent ul {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.card-infoContent .description,
+.card-infoContent .ingredient-list {
+  width: 45%;
+  list-style-type: none;
+}
+
+.card-title {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.description {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 100%;
+  font-weight: 400;
+}
+
+.card-ingredient-name {
+  font-weight: 700;
+}
+
+.card-time-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-time {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.normal {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.search {
+  display: none;
+  gap: 10px;
+  align-items: center;
+}
+
+.filter-list {
+  display: none;
+  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+}
+
+/*# sourceMappingURL=style.css.map */

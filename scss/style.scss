@@ -1,0 +1,140 @@
+@import "variables";
+
+body {
+    font-family: $main-font !important;
+}
+
+.content-container {
+    margin: 0 auto;
+    max-width: 1440px;
+}
+
+.logo {
+    width: 250px;
+}
+
+.search-input {
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: #e7e7e7 !important;
+
+}
+
+.search-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.search-input-icon {
+    font-size: 35px;
+    padding: 5px;
+}
+
+.btn {
+    padding: 15px 23px !important;
+}
+
+.btn-green {
+    background-color: $btn-green !important;
+    color: white !important;
+}
+
+.btn-orange {
+    background-color: $btn-orange !important;
+    color: $btn-text-color !important;
+}
+
+.item-anchor {
+    text-decoration: none !important;
+    color: $item-color !important;
+}
+
+.card-img {
+    background: $card-img-color;
+    height: 178px;
+    z-index: 3;
+}
+
+article {
+    width: 30%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.recipe-container {
+    margin: 25px;
+    gap: 25px;
+
+    article {
+        background: $card-container-color;
+    }
+
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.card-infoContent {
+    display: flex;
+    margin: 20px;
+    justify-content: space-between;
+
+    & ul {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    & .description,
+    .ingredient-list {
+        width: 45%;
+        list-style-type: none;
+    }
+}
+
+.card-title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: $font-weight-normal;
+}
+
+.description {
+    font-family: $description-font;
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: $font-weight-normal;
+}
+
+.card-ingredient-name {
+    font-weight: $font-weight-bold;
+}
+
+.card-time-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-time {
+    font-size: 18px;
+    font-weight: $font-weight-bold;
+}
+
+.normal {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.search {
+    display: none;
+    gap: 10px;
+    align-items: center;
+}
+
+.filter-list{
+    display: none;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr; 
+}

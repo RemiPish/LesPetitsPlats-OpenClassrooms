@@ -7,14 +7,8 @@ export default class recipe {
         this.time = data.time;
         this.description = data.description;
         this.appliance = data.appliance;
-        this.ingredients = [];
-        this.ustensils = [];
-        data.ingredients.forEach(elt => {
-            this.ingredients.push(elt);
-        });
-        data.ustensils.forEach(elt => {
-            this.ustensils.push(elt);
-        });
+        this.ingredients = data.ingredients;
+        this.ustensils = data.ustensils;
     }
 
     render() {
@@ -22,6 +16,7 @@ export default class recipe {
 
         const anchor = document.createElement('a');
         anchor.setAttribute("href", "#");
+        anchor.className += "item-anchor";
 
         const divImg = document.createElement('div');
         divImg.className += "card-img";
@@ -29,25 +24,32 @@ export default class recipe {
         const divInfo = document.createElement('div');
 
         const cardHeader = document.createElement('div');
+        cardHeader.className += "card-header"
 
         const cardTitle = document.createElement('div');
         cardTitle.textContent = this.name;
+        cardTitle.className += "card-title";
 
         const cardTime = document.createElement('div');
-
+        cardTime.className += "card-time-container"
+        
         const cardTimeIcon = document.createElement('i');
+        cardTimeIcon.className +="fa fa-clock-o";
         const cardTimeText = document.createElement('div');
         cardTimeText.textContent = `${this.time} min`
+        cardTimeText.className += "card-time";
 
         const cardInfoContent = document.createElement('div');
+        cardInfoContent.className += "card-infoContent"
 
         const ingredientList = document.createElement('ul');
+        ingredientList.className += "ingredient-list"
 
         this.ingredients.forEach(elt => {
             const li = document.createElement('li');
             const name = document.createElement('spam');
             name.textContent = elt.ingredient + ": ";
-
+            name.className += "card-ingredient-name"
             li.appendChild(name);
 
             const amount = document.createElement('spam');
@@ -63,6 +65,7 @@ export default class recipe {
         })
 
         const desc = document.createElement('div');
+        desc.className += "description"
         desc.textContent = this.description;
 
 
