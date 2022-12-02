@@ -134,7 +134,41 @@ article {
     align-items: center;
 }
 
-.filter-list{
+.filter-list {
     display: none;
-    grid-template-columns: 0.5fr 0.5fr 0.5fr; 
+    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+}
+
+.filter-item-anchor {
+    color: $btn-text-color;
+    text-decoration: none;
+}
+
+.tag-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.chosen-filter-btn {
+    display: flex;
+    gap: 15px;
+    justify-content: space-between;
+    align-items: center;
+    height: 37px;
+    border-radius: 5px;
+    color: $btn-text-color;
+    padding:20px;
+}
+
+.chosen-ingredient {
+    background: $btn-blue;
+}
+
+.chosen-appareil {
+    background: $btn-green;
+}
+
+.chosen-ustensil {
+    background: $btn-orange;
 }

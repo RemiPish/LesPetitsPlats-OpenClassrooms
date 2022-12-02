@@ -61,7 +61,6 @@ article {
 
 .recipe-container {
   margin: 25px;
-  justify-content: space-between;
   gap: 25px;
 }
 .recipe-container article {
@@ -131,7 +130,41 @@ article {
 
 .filter-list {
   display: none;
-  grid-template-columns: 0.5fr 0.5fr 0.5fr;
+  grid-template-columns: 1.5fr 1.5fr 1.5fr;
+}
+
+.filter-item-anchor {
+  color: white;
+  text-decoration: none;
+}
+
+.tag-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.chosen-filter-btn {
+  display: flex;
+  gap: 15px;
+  justify-content: space-between;
+  align-items: center;
+  height: 37px;
+  border-radius: 5px;
+  color: white;
+  padding: 20px;
+}
+
+.chosen-ingredient {
+  background: #3282F7;
+}
+
+.chosen-appareil {
+  background: #68D9A4;
+}
+
+.chosen-ustensil {
+  background: #ED6454;
 }
 
 /*# sourceMappingURL=style.css.map */
