@@ -3,15 +3,13 @@ export default class filter {
         this.name = name;
         this.recipeList = recipes;
         this.array = [];
-        this.touchedFilterArray = [];
         this.chosenFilterArray = [];
         this.filterButton = document.querySelector(`.${name}-btn`);
-        this.open = false;
+        this.input = "";
     }
 
     renderChosenFilter() {
         let chosenFilterContainer = document.querySelector(".tag-container");
-        chosenFilterContainer.textContent = "";
 
         this.chosenFilterArray.forEach(elt => {
             let chosenBtn = document.createElement('button');
@@ -37,7 +35,7 @@ export default class filter {
         let listDiv = this.filterButton.querySelector(".filter-list");
         listDiv.style.display = "grid"
         listDiv.textContent = "";
-        this.touchedFilterArray.forEach(elt => {
+        this.array.forEach(elt => {
 
             let itemAnchor = document.createElement('a');
             itemAnchor.className += "filter-item-anchor";
@@ -48,25 +46,43 @@ export default class filter {
             listDiv.appendChild(itemAnchor);
 
         })
+
         this.listenFilterSelection();
     }
 
-    listenFilterButton() {
-        this.filterButton.addEventListener("click", () => {
-            if (this.open) {
-                this.open = false;
-                this.filterButton.querySelector(".normal").style.display = "flex";
-                this.filterButton.querySelector(".search").style.display = "none";
-                this.filterButton.querySelector(".filter-list").style.display = "none";
+    searchInFilters() {
+        let list = document.querySelectorAll(".filter-item-anchor");
+        this.input.addEventListener("keyup", () => {
+            list.forEach(elt => {
+                if (elt.textContent.toLowerCase().indexOf(this.input.value.toLowerCase()) > -1)
+                    elt.style.display = ''
+                else elt.style.display = 'none'
+            })
+        })
+    }
 
-            }
-            else {
-                this.open = true;
-                this.filterButton.querySelector(".normal").style.display = "none";
-                this.filterButton.querySelector(".search").style.display = "flex";
-                this.renderFilterArray();
-            }
+    listenFilterButton() {
+
+        this.filterButton.querySelector(".fa-chevron-down").addEventListener("click", () => {
+            this.filterButton.querySelector(".normal").style.display = "none";
+            this.filterButton.querySelector(".search").style.display = "flex";
+            this.renderFilterArray();
+            this.searchInFilters();
+
         });
+        this.filterButton.querySelector(".fa-chevron-up").addEventListener("click", () => {
+            this.closeFilterButton();
+        })
+
+    }
+
+    closeFilterButton() {
+
+
+        this.filterButton.querySelector(".normal").style.display = "flex";
+        this.filterButton.querySelector(".search").style.display = "none";
+        this.filterButton.querySelector(".filter-list").style.display = "none";
+
     }
 
     listenFilterSelection() {
@@ -75,8 +91,10 @@ export default class filter {
         listAnchor.forEach(itemAnchor => {
             itemAnchor.addEventListener("click", () => {
                 this.chosenFilterArray.push(itemAnchor.id);
-                this.renderChosenFilter();
-                this.renderFilterArray();
+                let chosenFilterContainer = document.querySelector(".tag-container");
+                chosenFilterContainer.textContent = "";
+                this.recipeList.filterList.forEach(filter => filter.renderChosenFilter());
+                this.recipeList.applyRecipesFilter();
             })
         })
     }
@@ -87,7 +105,15 @@ export default class filter {
         chosenFilterBtnList.forEach(elt => {
             elt.addEventListener("click", () => {
                 this.chosenFilterArray = this.chosenFilterArray.filter(e => e !== elt.value);
-                this.renderChosenFilter();
+                this.recipeList.applyRecipesFilter();
+
+                let chosenFilterContainer = document.querySelector(".tag-container");
+                chosenFilterContainer.textContent = "";
+                this.recipeList.filterList.forEach(filter => filter.renderChosenFilter());
+                this.open = false;
+                this.filterButton.querySelector(".normal").style.display = "flex";
+                this.filterButton.querySelector(".search").style.display = "none";
+                this.filterButton.querySelector(".filter-list").style.display = "none";
             })
         })
     }

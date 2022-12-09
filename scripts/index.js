@@ -1,71 +1,26 @@
 
 import recipes from "../scripts/data/recipeData.js";
-import recipe from "../scripts/recipe.js";
+
 import ustensil from "../scripts/ustensil.js";
 import ingredient from '../scripts/ingredient.js';
 import appareil from '../scripts/appareil.js';
+import recipeList from '../scripts/recipeList.js'
 
-let recipeList = recipes;
-let recipeNameList = [];
-let selectedRecipeNames = [];
-
-/*recipeList.forEach(recipe => {
-    recipeNameList.push(recipe.name)
-})
-
-function displayRecipe() {
-
-    const input = document.querySelector(".recipe-input");
-
-    input.addEventListener("keyup", () => {
-        selectedRecipeNames = [];
-        recipeNameList.forEach(elt => {
-            if (elt.toLowerCase().indexOf(input.value.toLowerCase()) > -1) {
-                selectedRecipeNames.push(elt);
-            }
-        })
-        filterRecipe();
-    })
-}
-
-function filterRecipe() {
-   
-    const input = document.querySelector(".recipe-input");
-    recipeContainer.textContent = "";
-    if (!input.value.trim().length) {
-        recipeList.forEach((elt) => {
-
-            let recette = new recipe(elt);
-            recipeContainer.appendChild(recette.render());
-        })
-    }
-    else {
-        recipeList.forEach((elt) => {
-            if (selectedRecipeNames.includes(elt.name)) {
-
-                let recette = new recipe(elt);
-                recipeContainer.appendChild(recette.render());
+let recetteList = new recipeList(recipes);
+recetteList.searchRecipesInput();
 
 
-            }
-        })
-    }
-}*/
+recetteList.renderRecipeList();
 
-const recipeContainer = document.querySelector(".recipe-container");
-recipeList.forEach((elt) => {
+let ustensilFilter = new ustensil(recetteList);
+recetteList.filterList.push(ustensilFilter);
 
-    let recette = new recipe(elt);
-    recipeContainer.appendChild(recette.render());
-})
 
-let ustensilFilter = new ustensil(recipeList);
-ustensilFilter.listenFilterButton();
+let ingredientFilter = new ingredient(recetteList);
+recetteList.filterList.push(ingredientFilter);
 
-let ingredientFilter = new ingredient(recipeList);
-ingredientFilter.listenFilterButton();
+let appareilFilter = new appareil(recetteList);
+recetteList.filterList.push(appareilFilter);
 
-let appareilFilter = new appareil(recipeList);
-appareilFilter.listenFilterButton();
-
+recetteList.filterList.forEach(filter => filter.listenFilterButton());
 

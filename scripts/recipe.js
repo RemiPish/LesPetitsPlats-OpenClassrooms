@@ -13,6 +13,7 @@ export default class recipe {
 
     render() {
         const article = document.createElement('article');
+        article.setAttribute("id", this.name)
 
         const anchor = document.createElement('a');
         anchor.setAttribute("href", "#");

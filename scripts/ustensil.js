@@ -3,35 +3,23 @@ import filter from './filter.js';
 export default class ustensil extends filter {
     constructor(recipes) {
         super(recipes, 'ustensil');
-        this.recipeList.forEach(recipe => {
+        this.collectFilter(recipes);
+        this.input = document.querySelector(".ustensil-input");
+    }
+    collectFilter(recipes) {
+        this.array = [];
+        recipes.filteredRecipes.forEach(recipe => {
             recipe.ustensils.forEach(elt => {
-                if (!this.array.find(e => e.toLowerCase() === elt.toLowerCase()))
+                if (!this.array.find(e => e.toLowerCase() === elt.toLowerCase()) && !this.chosenFilterArray.includes(elt))
                     this.array.push(elt)
             })
         })
-        this.touchedFilterArray = this.array;
     }
-
-    filterRecipeList() {
-        let result = [];
-
-        this.recipeList.forEach(recipe => {
-            let filterListOnRecipe = [];
-            let chosenFilterList = [];
-            recipe.ustensils.forEach(elt => {
-                filterListOnRecipe.push(elt.toLowerCase);
-            })
-            this.chosenFilterArray.forEach(elt => {
-                chosenFilterList.push(elt.toLowerCase);
-            })
-            if(chosenFilterList.every(e => filterListOnRecipe.includes(e)))
-            {
-                result.push(recipe);
-            }
-            return result;
-        })
+    filterRecipeList(recipes) {
+        if (this.chosenFilterArray.length != 0) {
+            return recipes.filter(recipe => this.chosenFilterArray.every(e => recipe.ustensils.includes(e)));
+        }
+        return recipes;
 
     }
-
-
 }
