@@ -18,6 +18,11 @@ body {
   background-color: #e7e7e7 !important;
 }
 
+.filter-search-input {
+  background: none !important;
+  border: none !important;
+}
+
 .search-input:focus {
   outline: none !important;
   box-shadow: none !important;
@@ -116,12 +121,6 @@ article {
   font-weight: 700;
 }
 
-.normal {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
 .search {
   display: none;
   gap: 10px;
@@ -155,16 +154,57 @@ article {
   padding: 20px;
 }
 
-.chosen-ingredient {
+.chosen-ingredient,
+.ingredient-filter-container {
   background: #3282F7;
+  border-radius: 5px;
+  z-index: 100;
 }
 
-.chosen-appareil {
+.chosen-appareil,
+.appareil-filter-container {
   background: #68D9A4;
+  border-radius: 5px;
+  z-index: 100;
 }
 
-.chosen-ustensil {
+.chosen-ustensil,
+.ustensil-filter-container {
   background: #ED6454;
+  border-radius: 5px;
+  z-index: 100;
+}
+
+.filter-list,
+.search {
+  padding: 15px 25px;
+}
+
+.filter-list {
+  max-height: 350px;
+  overflow: auto;
+}
+
+.dropdown-btn-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-height: 250px;
+  overflow: visible;
+}
+
+i {
+  margin-left: 15px;
+}
+
+.fa-chevron-up {
+  color: white;
+}
+
+.ingredient-btn,
+.appareil-btn,
+.ustensil-btn {
+  width: 170px;
 }
 
 /*# sourceMappingURL=style.css.map */

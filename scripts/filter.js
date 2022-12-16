@@ -4,7 +4,7 @@ export default class filter {
         this.recipeList = recipes;
         this.array = [];
         this.chosenFilterArray = [];
-        this.filterButton = document.querySelector(`.${name}-btn`);
+        this.filterContainer = document.querySelector(`.${name}-filter-container`);
         this.input = "";
     }
 
@@ -32,9 +32,10 @@ export default class filter {
     }
 
     renderFilterArray() {
-        let listDiv = this.filterButton.querySelector(".filter-list");
+        let listDiv = this.filterContainer.querySelector(".filter-list");
         listDiv.style.display = "grid"
         listDiv.textContent = "";
+        this.input.value = "";
         this.array.forEach(elt => {
 
             let itemAnchor = document.createElement('a');
@@ -62,31 +63,28 @@ export default class filter {
     }
 
     listenFilterButton() {
-
-        this.filterButton.querySelector(".fa-chevron-down").addEventListener("click", () => {
-            this.filterButton.querySelector(".normal").style.display = "none";
-            this.filterButton.querySelector(".search").style.display = "flex";
+        this.filterContainer.querySelector(".normal").addEventListener("click", () => {
+            this.filterContainer.querySelector(".normal").style.display = "none";
+            this.filterContainer.querySelector(".search").style.display = "flex";
             this.renderFilterArray();
             this.searchInFilters();
 
         });
-        this.filterButton.querySelector(".fa-chevron-up").addEventListener("click", () => {
+        this.filterContainer.querySelector(".fa-chevron-up").addEventListener("click", () => {
             this.closeFilterButton();
         })
 
     }
 
     closeFilterButton() {
-
-
-        this.filterButton.querySelector(".normal").style.display = "flex";
-        this.filterButton.querySelector(".search").style.display = "none";
-        this.filterButton.querySelector(".filter-list").style.display = "none";
+        this.filterContainer.querySelector(".normal").style.display = "inline-block";
+        this.filterContainer.querySelector(".search").style.display = "none";
+        this.filterContainer.querySelector(".filter-list").style.display = "none";
 
     }
 
     listenFilterSelection() {
-        let listDiv = this.filterButton.querySelector(".filter-list");
+        let listDiv = this.filterContainer.querySelector(".filter-list");
         let listAnchor = listDiv.querySelectorAll(".filter-item-anchor");
         listAnchor.forEach(itemAnchor => {
             itemAnchor.addEventListener("click", () => {
@@ -95,6 +93,7 @@ export default class filter {
                 chosenFilterContainer.textContent = "";
                 this.recipeList.filterList.forEach(filter => filter.renderChosenFilter());
                 this.recipeList.applyRecipesFilter();
+                this.renderFilterArray();
             })
         })
     }
@@ -111,9 +110,9 @@ export default class filter {
                 chosenFilterContainer.textContent = "";
                 this.recipeList.filterList.forEach(filter => filter.renderChosenFilter());
                 this.open = false;
-                this.filterButton.querySelector(".normal").style.display = "flex";
-                this.filterButton.querySelector(".search").style.display = "none";
-                this.filterButton.querySelector(".filter-list").style.display = "none";
+                this.filterContainer.querySelector(".normal").style.display = "inline-block";
+                this.filterContainer.querySelector(".search").style.display = "none";
+                this.filterContainer.querySelector(".filter-list").style.display = "none";
             })
         })
     }

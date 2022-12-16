@@ -7,8 +7,7 @@ import appareil from '../scripts/appareil.js';
 import recipeList from '../scripts/recipeList.js'
 
 let recetteList = new recipeList(recipes);
-recetteList.searchRecipesInput();
-
+recetteList.listenRecipesInput();
 
 recetteList.renderRecipeList();
 
@@ -23,4 +22,5 @@ let appareilFilter = new appareil(recetteList);
 recetteList.filterList.push(appareilFilter);
 
 recetteList.filterList.forEach(filter => filter.listenFilterButton());
+
 

@@ -28,7 +28,7 @@
                 <input class="form-control search-input recipe-input" type="text" name="recipe-input"
                     placeholder="Rechercher une recette">
                 <div class="input-group-append">
-                    <span class="search-input search-input-icon">
+                    <span class="filter-search-input search-input-icon">
                         <i class="fa fa-search"></i>
                     </span>
                 </div>
@@ -39,56 +39,51 @@
         <div class="tag-container mx-4 my-3"></div>
 
         <div class="dropdown-btn-container mx-4 my-3">
-            <div class="ingredient-filter-container btn-group mx-2">
-                <button type="button" class="btn btn-primary ingredient-btn">
-                    <div class="normal">
-                        <div>Ingrédients</div>
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="search">
-                        <input class="search-input ingredient-input" placeholder="Rechercher un ingrédient"
-                            type="text" />
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </div>
-                    <div class="filter-list">
-
-                    </div>
+            <div class="ingredient-filter-container  mx-2">
+                <button type="button" class="btn btn-primary ingredient-btn normal">
+                    Ingrédients
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </button>
-                
+                <div class="search">
+                    <input class="filter-search-input ingredient-input form-control" placeholder="Rechercher un ingrédient"
+                        type="text" />
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                </div>
+                <div class="filter-list">
+
+                </div>
+
+
             </div>
-            <div class="appareil-filter-container btn-group mx-2">
-                <button type="button" class="btn btn-green appareil-btn">
-                    <div class="normal">
-                        <div>Appareils</div>
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="search">
-                        <input class="search-input appareil-input" placeholder="Rechercher un appareil"
-                            type="text" />
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </div>
-                    <div class="filter-list">
-
-                    </div>
+            <div class="appareil-filter-container  mx-2">
+                <button type="button" class="btn btn-green appareil-btn normal">
+                    Appareils
+                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </button>
-                
+
+                <div class="search">
+                    <input class="filter-search-input appareil-input form-control" placeholder="Rechercher un appareil"
+                        type="text" />
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                </div>
+                <div class="filter-list">
+
+                </div>
+
+
             </div>
-            <div class="ustensil-filter-container btn-group mx-2">
-                <button type="button" class="btn btn-orange ustensil-btn">
-                    <div class="normal">
-                        <div>Ustensiles</div>
-                        <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                    </div>
-                    <div class="search">
-                        <input class="search-input ustensil-input form-control" placeholder="Rechercher un ustensile"
-                            type="text"/>
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </div>
-                    <div class="filter-list">
-
-                    </div>
+            <div class="ustensil-filter-container mx-2">
+                <button type="button" class="btn btn-orange ustensil-btn normal">
+                    Ustensiles<i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </button>
-                
+                <div class="search">
+                    <input class="filter-search-input ustensil-input form-control" placeholder="Rechercher un ustensile"
+                        type="text" />
+                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                </div>
+                <div class="filter-list">
+
+                </div>
             </div>
         </div>
         <div class="recipe-container d-flex flex-wrap">
