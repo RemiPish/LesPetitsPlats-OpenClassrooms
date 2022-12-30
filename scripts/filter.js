@@ -83,6 +83,7 @@ export default class filter {
 
     }
 
+   
     listenFilterSelection() {
         let listDiv = this.filterContainer.querySelector(".filter-list");
         let listAnchor = listDiv.querySelectorAll(".filter-item-anchor");
@@ -94,6 +95,7 @@ export default class filter {
                 this.recipeList.filterList.forEach(filter => filter.renderChosenFilter());
                 this.recipeList.applyRecipesFilter();
                 this.renderFilterArray();
+                this.recipeList.closeAllFilters();
             })
         })
     }
@@ -112,9 +114,7 @@ export default class filter {
                 chosenFilterContainer.textContent = "";
                 this.recipeList.filterList.forEach(filter => filter.renderChosenFilter());
                 this.open = false;
-                this.filterContainer.querySelector(".normal").style.display = "inline-block";
-                this.filterContainer.querySelector(".search").style.display = "none";
-                this.filterContainer.querySelector(".filter-list").style.display = "none";
+                this.recipeList.closeAllFilters();
             })
         })
     }

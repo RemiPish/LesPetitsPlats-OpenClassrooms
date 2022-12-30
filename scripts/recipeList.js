@@ -25,6 +25,10 @@ export default class recipeList {
         this.renderRecipeList();
     }
 
+    closeAllFilters() {
+        this.filterList.forEach(filter => filter.closeFilterButton());
+    }
+
     renderRecipeList() {
         const recipeContainer = document.querySelector(".recipe-container");
         recipeContainer.textContent = "";
@@ -33,6 +37,7 @@ export default class recipeList {
             recipeContainer.appendChild(recette.render());
         })
     }
+
 
     showEmptyRecipeContainer(text) {
         let container = document.querySelector(".recipe-container");
@@ -50,7 +55,7 @@ export default class recipeList {
                 filter.closeFilterButton();
             })
             this.searchWithInput(e.target.value);
-           
+
         })
     }
 
