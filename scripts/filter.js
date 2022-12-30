@@ -104,7 +104,9 @@ export default class filter {
         chosenFilterBtnList.forEach(elt => {
             elt.addEventListener("click", () => {
                 this.chosenFilterArray = this.chosenFilterArray.filter(e => e !== elt.value);
-                this.recipeList.applyRecipesFilter();
+                if (this.recipeList.searchedInput.length === 0)
+                    this.recipeList.applyRecipesFilter(true);
+                else this.recipeList.searchWithInput(this.recipeList.searchedInput);
 
                 let chosenFilterContainer = document.querySelector(".tag-container");
                 chosenFilterContainer.textContent = "";
