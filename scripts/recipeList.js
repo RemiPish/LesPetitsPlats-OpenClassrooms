@@ -60,22 +60,20 @@ export default class recipeList {
     }
 
     searchWithInput(inputValue) {
+        if (inputValue.length < 3) {
+            this.showEmptyRecipeContainer("Votre mot recherché doit être plus longue que 3 mots");
+            return;
+        }
+
         if (!inputValue.length) {
             this.filteredRecipes = this.allRecipes;
             this.searchedInput = "";
             this.searchRecipes(this.allRecipes);
+            return;
         }
-        else if (inputValue.length < 3) {
-            this.showEmptyRecipeContainer("Votre mot recherché doit être plus longue que 3 mots");
-        }
-        else {
-            let previousInput = this.searchedInput;
-            this.searchedInput = inputValue.toLowerCase();
-            if ((previousInput.length < this.searchedInput.length) && (this.searchedInput.includes(previousInput))) {
-                this.searchRecipes(this.filteredRecipes);
-            }
-            else this.searchRecipes(this.allRecipes);
-        }
+        this.searchedInput = inputValue.toLowerCase();
+        this.searchRecipes(this.allRecipes);
+
     }
 
     searchRecipes(list) {
