@@ -80,7 +80,7 @@ export default class recipeList {
 
     searchRecipes(list) {
 
-        let res = this.searchUsingIteration(list);
+        let res = this.searchUsingFilter(list);
         if (res.length > 0) {
             this.filteredRecipes = res;
             this.applyRecipesFilter();
