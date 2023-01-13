@@ -104,7 +104,6 @@ export default class recipeList {
     searchUsingIteration(list) {
         let res = [];
         for (let i = 0; i < list.length; i++) {
-            console.log(list[i])
             for (let j = 0; j < list[i].ingredients.length; j++) {
                 console.log(list[i].ingredients[j].ingredient)
                 if (list[i].ingredients[j].ingredient.toLowerCase().includes(this.searchedInput)) {
@@ -122,7 +121,4 @@ export default class recipeList {
         }
         return res;
     }
-
-
-
 }
