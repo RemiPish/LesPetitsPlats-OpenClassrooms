@@ -100,25 +100,4 @@ export default class recipeList {
                     ing.ingredient.toLowerCase().includes(this.searchedInput)))) return true;
         })
     }
-
-    searchUsingIteration(list) {
-        let res = [];
-        for (let i = 0; i < list.length; i++) {
-            for (let j = 0; j < list[i].ingredients.length; j++) {
-                console.log(list[i].ingredients[j].ingredient)
-                if (list[i].ingredients[j].ingredient.toLowerCase().includes(this.searchedInput)) {
-                    if (!res.includes(list[i])) {
-                        res.push(list[i])
-                    }
-                }
-            }
-            if ((list[i].name.toLowerCase().includes(this.searchedInput)) ||
-                (list[i].description.toLowerCase().includes(this.searchedInput))) {
-                if (!res.includes(list[i])) {
-                    res.push(list[i])
-                }
-            }
-        }
-        return res;
-    }
 }
