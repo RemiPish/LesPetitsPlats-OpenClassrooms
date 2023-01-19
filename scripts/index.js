@@ -13,7 +13,7 @@ recetteList.listenRecipesInput();
 /*affiche la liste des recettes*/
 recetteList.renderRecipeList();
 
-/*ajout des trois filtres*/
+/*ajoute les trois filtres*/
 let ustensilFilter = new ustensil(recetteList);
 recetteList.filterList.push(ustensilFilter);
 
