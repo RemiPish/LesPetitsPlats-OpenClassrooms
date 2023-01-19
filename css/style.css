@@ -135,6 +135,7 @@ article {
 .filter-item-anchor {
   color: white;
   text-decoration: none;
+  margin-right: 1rem;
 }
 
 .tag-container {
