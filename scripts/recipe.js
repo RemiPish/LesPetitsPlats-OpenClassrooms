@@ -1,5 +1,6 @@
 export default class recipe {
 
+    /*construit une recette*/
     constructor(data) {
         this.id = data.id;
         this.name = data.name;
@@ -11,6 +12,7 @@ export default class recipe {
         this.ustensils = data.ustensils;
     }
 
+    /*affiche la recette sur la page*/
     render() {
         const article = document.createElement('article');
         article.setAttribute("id", this.name)

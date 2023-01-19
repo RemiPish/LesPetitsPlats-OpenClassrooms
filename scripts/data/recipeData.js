@@ -1,3 +1,5 @@
+/* la liste des recettes */
+
 const recipes = [
     {
         "id": 1,

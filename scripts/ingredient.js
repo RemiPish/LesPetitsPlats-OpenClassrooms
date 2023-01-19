@@ -1,12 +1,14 @@
 import filter from './filter.js';
 
+/*construit la liste des ingrédients (à filtrer) qui fait partie du filtre*/
 export default class ingredient extends filter {
     constructor(recipes) {
         super(recipes, 'ingredient');
         this.collectFilter(recipes);
         this.input = document.querySelector(".ingredient-input");
     }
-   
+
+    /* trie la liste des ingrédients valides restants à appliquer*/
     collectFilter(recipes) {
         this.array = [];
         recipes.filteredRecipes.forEach(recipe => {
@@ -16,8 +18,10 @@ export default class ingredient extends filter {
             })
         })
     }
+
+    /*filtrer la liste des recettes selon la liste des ingrédients choisie*/
     filterRecipeList(recipes) {
-        if(this.chosenFilterArray.length != 0){
+        if (this.chosenFilterArray.length != 0) {
             let r = [];
             recipes.filter(recipe => {
                 let iArray = [];
@@ -30,6 +34,6 @@ export default class ingredient extends filter {
             return r;
         }
         return recipes;
-       
+
     }
 }
